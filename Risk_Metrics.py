@@ -149,6 +149,15 @@ def var_gaussian(r, level=5, modified = False):
     Returns:
     float: The parametric Gaussian Value-at-Risk.
     """
+    if not isinstance(r, pd.Series):
+        raise ValueError("Input must be a pandas Series")
+    if r.empty:
+        raise ValueError("Input Series is empty")
+    if not 0 <= level <= 100:
+        raise ValueError("Confidence level must be between 0 and 100")
+    if r.hasnans:
+        raise ValueError("Input Series contains missing values")
+
     z = norm.ppf(level/100)
     if modified:
         s = skewness(r)
