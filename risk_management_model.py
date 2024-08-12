@@ -1,13 +1,13 @@
 import pandas as pd
 import numpy as np
-import Risk_Metrics as op
+import Risk_Metrics as rm
 
 # VaR analysis
 
-hfi = op.get_hfi_returns()
+hfi = rm.get_hfi_returns()
 
 # (a) Semi-deviation
-op.semideviation(hfi)
+rm.semideviation(hfi)
 
 # (b) Var & CVar Analysis
 
@@ -40,8 +40,8 @@ print("\nHistoric VaR for HFI returns:")
 print(hfi_var_historic)
 
 # Calculate the Gaussian and modified Cornish-Fisher VaR for the HFI returns
-hfi_var_gaussian = op.var_gaussian(hfi)
-hfi_var_cornish_fisher = op.var_gaussian(hfi, modified=True)
+hfi_var_gaussian = rm.var_gaussian(hfi)
+hfi_var_cornish_fisher = rm.var_gaussian(hfi, modified=True)
 
 # Create a list of the VaR calculations for each method
 var_list = [hfi_var_gaussian, hfi_var_cornish_fisher, hfi_var_historic]
