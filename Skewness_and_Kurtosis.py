@@ -1,5 +1,3 @@
-%load_ext autoreload #type:ignore
-%autoreload 2 #type:ignore
 import Risk_Metrics as op
 import pandas as pd
 import numpy as np
