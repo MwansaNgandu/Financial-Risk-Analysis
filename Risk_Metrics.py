@@ -49,7 +49,7 @@ def get_hfi_returns():
 def semideviation(r):
     # Compute the semideviation of a return series.
     is_negetive= r<0
-    return np.std(r[is_negetive], ddof=1)
+    return np.std(r[is_negetive], ddof=0, axis=0)
 
 def skewness(r):
     # Compute the skewness of a return series.
@@ -108,7 +108,7 @@ def var_gaussian(r, level=5, modified = False):
              (z**3-3*z)*(k-3)/24 -
              (2*z**3-5*z)*(s**2)/36
             )
-    return -(r.mean() + z*r.std(ddof=0))
+    return -(r.mean() + z*r.std(ddof=0, axis=0))
 
 def cvar_historic(r,level=5):
     # Compute the historic Conditional Value-at-Risk of a return series.

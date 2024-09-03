@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 # VaR analysis
 hfi = rm.get_hfi_returns()
 
-'''
 # (a) Semi-deviation
 semideviation= rm.semideviation(hfi)
 print("Semi-deviation of HFI returns:")
@@ -23,8 +22,6 @@ print(hfi_percentile)
 hfi_var_historic = rm.var_historic(hfi)
 print("\nHistoric VaR for HFI returns:")
 print(hfi_var_historic)
-'''
-hfi_var_historic = rm.var_historic(hfi)
 
 # Calculate Gaussian and Cornish-Fisher VaR for each column
 hfi_var_gaussian = hfi.apply(rm.var_gaussian, level=5)
