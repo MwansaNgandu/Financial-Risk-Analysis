@@ -18,8 +18,8 @@ def calculate_summary_stats(returns):
 
 def calculate_skewness_kurtosis(returns):
     """Calculate skewness and kurtosis of returns"""
-    skewness = rm.skewness(returns).sort_values()
-    kurtosis = rm.kurtosis(returns).sort_values()
+    skewness = rm.skewness(returns)
+    kurtosis = rm.kurtosis(returns)
     return skewness, kurtosis
 
 def check_normality(returns):
