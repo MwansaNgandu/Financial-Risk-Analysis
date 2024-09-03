@@ -30,7 +30,7 @@ def get_ffme_returns():
         rets.index = pd.to_datetime(rets.index,format="%Y%m").to_period('M')
         return rets
     except FileNotFoundError:
-        print("File not found.")
+        print("File 1 not found.")
         return None
 
 def get_hfi_returns():
@@ -43,7 +43,7 @@ def get_hfi_returns():
         hfi.index = hfi.index.to_period('M')
         return hfi
     except FileNotFoundError:
-        print("File not found.")
+        print("File 2 not found.")
         return None
 
 def semideviation(r):
