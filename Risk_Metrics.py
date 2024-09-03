@@ -22,7 +22,7 @@ def drawdown(return_series: pd.Series, initial_wealth = 1000):
 def get_ffme_returns():
     # Load the Fama-French dataset for the returns of the 10 portfolios formed on ME
     try:
-        me_m = pd.read_csv("Portfolios_Formed_on_ME_monthly_EW.csv",
+        me_m = pd.read_csv("ME_Portfolio_Metrics_Monthly.csv",
                 header= 0, index_col = 0, na_values = -99.99)
         rets = me_m[['Lo 10', 'Hi 10']]
         rets.columns = ['SmallCap', 'LargeCap']
@@ -36,7 +36,7 @@ def get_ffme_returns():
 def get_hfi_returns():
     # Load the EDHEC Hedge Fund Index returns.
     try:
-        hfi = pd.read_csv("edhec-hedgefundindices.csv")
+        hfi = pd.read_csv("Hedge_Fund_Strategies_Analysis.csv")
         hfi=hfi.set_index('date')
         hfi = hfi/100
         hfi.index=(pd.to_datetime(hfi.index, format='%d/%m/%Y', dayfirst=True))
